@@ -1,0 +1,50 @@
+$color-card: #FFFFFF;
+$color-background: #F0F8FA;
+.card {
+    position: relative;
+    width: 380px;
+    background-color: $color-card; 
+    margin: 10px;
+    border-radius: 5px;
+    .background {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        // background: $color-background;
+        z-index: 0;
+    }
+    .card-content {
+        position: relative;
+        .card-title {
+            padding: 15px;
+        }
+        .estimate {
+            // border: 1px solid red;
+        }
+        .details {
+            padding: 5px;
+            .team-name {
+                display: inline-block;
+                font-weight: 700;
+                font-size: 14px;
+                color: #929292;
+                width: 240px;
+            }
+            .meta-details {
+                .date {
+                    margin: 0 5px;
+                    vertical-align: middle;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+.card-row {
+    display: block;
+    z-index: 1;
+    .card-column {
+        display: inline-block;
+    }
+}

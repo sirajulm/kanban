@@ -1,0 +1,9 @@
+.filter-list {
+    .filter-item {
+        display: inline-block;
+        padding: 10px;
+        &.active {
+            font-weight: 700;
+        }
+    }
+}

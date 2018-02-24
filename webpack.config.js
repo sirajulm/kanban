@@ -14,9 +14,33 @@ module.exports = {
     filename: 'index.bundle.js'
   },
   module: {
-    loaders: [
-      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-      { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
+    rules: [
+      { 
+        test: /\.js$/, 
+        use: [{
+          loader: 'babel-loader'
+        }],
+        exclude: ['/node_modules/']
+
+      },
+      { 
+        test: /\.jsx$/, 
+        use: [{
+          loader: 'babel-loader'
+        }],
+        exclude: ['/node_modules/']
+      },
+      {
+        test: /\.scss$/,
+        // loaders: 'style-loader!css-loader?modules!sass-loader'
+        use: [{
+            loader: "style-loader" // creates style nodes from JS strings
+        }, {
+            loader: "css-loader" // translates CSS into CommonJS
+        }, {
+            loader: "sass-loader" // compiles Sass to CSS
+        }]
+      }
     ]
   },
   plugins: [HtmlWebpackPluginConfig]  

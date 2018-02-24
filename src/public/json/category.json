@@ -1,0 +1,13 @@
+[{
+    "id": "a",
+    "title": "UNCATEGORIZED TASK",
+    "filter": "SHOW_ALL"
+}, {
+    "id": "b",
+    "title": "DESIGN",
+    "filter": "SHOW_ALL"
+}, {
+    "id": "c",
+    "title": "FRONTEND",
+    "filter": "SHOW_ALL"
+}]

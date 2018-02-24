@@ -1,16 +1,17 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import './style.scss';
 
-const Category = (props) => {
+const AddButton = (props) => {
     return (
-        <div onClick={props.onAction}>
+        <div className="add-button" onClick={props.onAction}>
             +
         </div>
     )
 }
 
-Category.propTypes = {
+AddButton.propTypes = {
 
 }
 
-export default  Category;
+export default  AddButton;

@@ -1,0 +1,10 @@
+$color-beacon: #F45F64;
+.beacon {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: $color-beacon;
+}

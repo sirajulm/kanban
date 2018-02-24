@@ -13,46 +13,18 @@ export default class App extends React.Component {
   onAddCategory = (event)=> {
     console.log("add category");
   }
+
+  componentDidMount() {
+    // getCategory().then(function(response) {
+    //   console.log(response);
+    // });
+  }
   render() {
+    
     return (
       <div>
         <Header></Header>
-      <div style={{textAlign: 'center'}}>
-          <Category>
-            <DateGroup>
-              <Card/>
-              <Card/>
-            </DateGroup>
-            <DateGroup>
-              <Card/>
-              <Card/>
-            </DateGroup>
-            <BackToTop/>
-          </Category>
-          <Category>
-            <DateGroup>
-              <Card/>
-              <Card/>
-            </DateGroup>
-            <DateGroup>
-              <Card/>
-              <Card/>
-            </DateGroup>
-            <BackToTop/>
-          </Category>
-          <Category>
-            <DateGroup>
-              <Card/>
-              <Card/>
-            </DateGroup>
-            <DateGroup>
-              <Card/>
-              <Card/>
-            </DateGroup>
-            <BackToTop/>
-          </Category>
-          <AddButton onAction={this.onAddCategory}/>
-        </div>
+        {this.props.children}
       </div>);
   }
 }

@@ -1,0 +1,20 @@
+$color-track: #DFDFDF;
+$color-rail: #28B0E2;
+.progress {
+    position: relative;
+    width: 100%;
+    height: 5px;
+    .track {
+        position: absolute;
+        height: 1px;
+        margin: 1px 0;
+        width: 100%;
+        background-color: $color-track;
+    }
+    .rail {
+        position: absolute;
+        height: 3px;
+        width: 60%;
+        background-color: $color-rail;
+    }
+}

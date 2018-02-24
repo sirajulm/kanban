@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-const CurrentTime = (props) => {
+const SystemTime = (props) => {
     return (
         <div>
-            CurrentTime
+            SystemTime
         </div>
     )
 }
 
-CurrentTime.propTypes = {
+SystemTime.propTypes = {
 
 }
 
-export default  CurrentTime;
+export default  SystemTime;
