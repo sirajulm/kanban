@@ -17,7 +17,7 @@ export default class App extends React.Component {
       <main className="app">
         <Header></Header>
         <div className="container">
-        <Route path="/" exact component={Kanban} />
+        <Route path="/" exact component={Dashboard} />
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/kanban" component={Kanban} />
         <Route path="/projects" component={Dashboard} />

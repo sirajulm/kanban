@@ -35,6 +35,7 @@ $color-category: #ebedf3;
         }
     }  
     .card-container {
+        min-height: 50px;
         max-height: calc(100vh - 250px);
         overflow: scroll;
     }

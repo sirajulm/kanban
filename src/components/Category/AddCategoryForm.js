@@ -33,7 +33,8 @@ class AddCategoryForm extends React.Component {
         this.props.onAddCategory({category: {
             "id": hash(this.state.title),
             "title": this.state.title,
-            "filter": "SHOW_ALL"
+            "filter": "SHOW_ALL",
+            "bypassCardFetch": true
         }});
         this.onCloseModal();
         event.preventDefault();

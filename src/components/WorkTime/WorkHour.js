@@ -5,7 +5,7 @@ const WorkHour = (props) => {
     return (
         <span className="work-hour">
             <span className="work-hour-gauge">
-                <img className="gauge-image" src="/src/public/img/gauge.png"/>
+                <img className="gauge-image" src="/public/img/gauge.png"/>
             </span>
             <span className="work-hour-status">WORKING</span>
         </span>

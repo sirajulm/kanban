@@ -5,7 +5,7 @@ import './style.scss';
 const DragHandle = (props) => {
     return (
         <div className="drag-handle">
-            <img src="/src/public/img/drag.png"/>
+            <img src="/public/img/drag.png"/>
         </div>
     )
 }

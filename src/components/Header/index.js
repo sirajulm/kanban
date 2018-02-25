@@ -21,14 +21,14 @@ const Header = (props) => {
             <WorkTime/>
             <NavLink to="#search" exact className="nav-item search" activeClassName="active">
                 <span>
-                    <img src="/src/public/img/search.png" />
+                    <img src="/public/img/search.png" />
                 </span>
             </NavLink>
             <NavLink to="#notifications" className="nav-item notification" activeClassName="active">
-                <span><img src="/src/public/img/notification.png" /></span>
+                <span><img src="/public/img/notification.png" /></span>
             </NavLink>
             <NavLink to="#video" className="nav-item video" activeClassName="active">
-                <span><img src="/src/public/img/video.png" /></span>
+                <span><img src="/public/img/video.png" /></span>
             </NavLink>
             <NavLink to="#profile" className="nav-item avatar" activeClassName="active">
                 <Profile 

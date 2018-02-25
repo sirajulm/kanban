@@ -37,14 +37,15 @@ class Category extends React.Component{
         if(this.scrollTimer) {
             clearTimeout(this.scrollTimer);
         }
-        this.scrollTimer = setTimeout(()=> {
-            console.log("Helooo");
+        this.scrollTimer = setTimeout(()=> {            
             this.setState({scrollTop: this.cardContainer.scrollTop})
         },200);
     }
 
     componentDidMount() {
-        this.props.dispatch(getCards(this.props.id));
+        if(!this.props.bypassCardFetch) {
+            this.props.dispatch(getCards(this.props.id));
+        }
         this.cardContainer = ReactDOM.findDOMNode(this).querySelector('.card-container');
         this.cardContainer.addEventListener('scroll', this.onScroll)
     }
@@ -86,7 +87,7 @@ class Category extends React.Component{
                     <div className="category-title">{title}</div>
                     <DragHandle/>
                     <div className="more-button">
-                        <img src="/src/public/img/more.png"/>
+                        <img src="/public/img/more.png"/>
                     </div>
                 </div>         
                 <div className="card-container">
@@ -111,7 +112,7 @@ class Category extends React.Component{
                     })
                     
                 }
-                {cardGroups && cardGroups.length && (this.state.scrollTop > 100) && <BackToTop onAction={this.onScrollTop}/>}
+                {cardGroups && (cardGroups.length > 0) && (this.state.scrollTop > 100) && <BackToTop onAction={this.onScrollTop}/>}
                 </div>
                 {
                     (cards && cards[id] && cards[id].length > 1) && 

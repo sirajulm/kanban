@@ -28,12 +28,12 @@ class Kanban extends React.Component {
         <header className="page-header">
           <span className="page-header-block">
             <span className="calendar">
-              <img className="calendar-image" src="/src/public/img/calendar.png"/>
+              <img className="calendar-image" src="/public/img/calendar.png"/>
             </span>
             <span className="page-title">My Tasks</span>
           </span>
           <span className="category-view">
-            <img className="category-view-image" src="/src/public/img/category-view.png"/>
+            <img className="category-view-image" src="/public/img/category-view.png"/>
           </span>
         </header>
         <div className="page-content">
@@ -45,7 +45,8 @@ class Kanban extends React.Component {
                     id={category.id} 
                     key={category.id} 
                     title={category.title}
-                    filter={category.filter}/>);
+                    filter={category.filter}
+                    bypassCardFetch={category.bypassCardFetch}/>);
                 })
               }
               <AddButton style={{ top: 50, right: 20}} onAction={this.onAddCategory}/>
