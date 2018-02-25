@@ -5,7 +5,7 @@ export const getCategories = (id) => ({
     id
 });
 
-export const addCategory = (category) => ({
+export const addCategory = ({category}) => ({
     type: types.ADD_CATEGORY,
     category
 });

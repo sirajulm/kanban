@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 
 const WorkHour = (props) => {
     return (
-        <div>
-            <div className="work-hour-gauge">GAUGE</div>
-            <div className="work-hour-status">WORKING</div>
-        </div>
+        <span className="work-hour">
+            <span className="work-hour-gauge">
+                <img className="gauge-image" src="/src/public/img/gauge.png"/>
+            </span>
+            <span className="work-hour-status">WORKING</span>
+        </span>
     )
 }
 

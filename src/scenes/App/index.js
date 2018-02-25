@@ -1,30 +1,29 @@
 import React from 'react';
+import { Route } from 'react-router-dom'
+
 import Header from '../../components/Header';
-import Category from '../../components/Category';
-import Card from '../../components/Card';
-import AddButton from '../../components/AddButton';
-import DateGroup from '../../components/DateGroup';
-import BackToTop from '../../components/BackToTop';
+import Dashboard from '../Dashboard';
+import Kanban from '../Kanban';
+
+import './style.scss';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
   }
-  onAddCategory = (event)=> {
-    console.log("add category");
-  }
-
-  componentDidMount() {
-    // getCategory().then(function(response) {
-    //   console.log(response);
-    // });
-  }
   render() {
     
     return (
-      <div>
+      <main className="app">
         <Header></Header>
-        {this.props.children}
-      </div>);
+        <div className="container">
+        <Route path="/" exact component={Kanban} />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/kanban" component={Kanban} />
+        <Route path="/projects" component={Dashboard} />
+        <Route path="/team" component={Dashboard} />
+        </div>
+        
+      </main>);
   }
 }

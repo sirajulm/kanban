@@ -1,0 +1,50 @@
+.work-day {
+    display: inline-block;
+    background-color: #252a35;
+    padding: 5px 15px 2px;
+    .system-time {
+        display: inline-block;
+        padding-right: 5px;
+        vertical-align: top;
+        .hour, .minute, .time-separator, .meridian  {
+            font-family: 'Titillium Web', sans-serif;
+            font-weight: 400;
+            padding-right: 2px;
+        }
+
+        .hour, .minute  {
+            color: #a9aaad;
+            font-size: 20px;
+        }
+        
+        .time-separator {
+            color: #5fb5ef;
+            font-size: 20px;
+        }
+        .meridian {
+            color: #5fb5ef;
+            font-size: 12px;
+        }
+    }
+    .work-hour {
+        display: inline-block;
+        padding-top: 4px;
+        .work-hour-gauge {
+            display: inline-block;
+            .gauge-image {
+                width: 25px;
+            }
+        }
+        .work-hour-status {
+            display: inline-block;
+            font-family: 'Titillium Web', sans-serif;
+            font-weight: 400;
+            color: #a9aaad;
+            vertical-align: top;
+            font-size: 12px;
+            margin: 3px 0 0 3px;
+        }
+    }
+    
+}
+

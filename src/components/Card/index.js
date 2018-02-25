@@ -9,7 +9,11 @@ import './style.scss';
 const Card = (props) => {
     const backgroundStyle = {
         width: `${(props.progress || 0)}%`,
-        backgroundColor: (props.isComplete) ? '#F2F3F9' : '#F0F8FA'
+        backgroundColor: (props.complete) ? '#F2F3F9' : '#F0F8FA'
+    };
+
+    const textStyle = {
+        textDecoration: (props.complete) ? 'line-through' : 'none'
     }
     return (
         <div className="card">
@@ -17,20 +21,20 @@ const Card = (props) => {
             <div className="card-content">
                 <Beacon/>
                 <div className="card-row">
-                    <div className="card-title">
-                        Create New designs in KAT for Boards, Cards, Details, Timelines and Graphs
+                    <div className="card-title" style={textStyle}>
+                        {props.description}
                     </div>
-                    <div className="estimate"></div>
-                    <Progress/>
+                    <div className="estimate">{props.estimate}</div>
+                    <Progress progress={props.progress}/>
                 </div>
                 <div className="card-row details">
                     <div className="card-column team-name">
-                        <span>{props.team}</span>
+                        <span>{props.team.name}</span>
                     </div>
                     <div className="card-column meta-details">
-                        <Profile/>
-                        <Priority priority={1}/>
-                        <span className="date">12 Jan</span>
+                        <Profile width={24} height={24} user={props.assignee}/>
+                        <Priority priority={props.priority}/>
+                        <span className="date">{props.created_at}</span>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,47 @@
+.kanban-board {
+    .page-header {
+        width: 100%;
+        height: 140px;
+        background-color: #424158;
+        .page-header-block {
+            float: left;
+            margin: 25px 0 0 0;
+            .calendar {
+                display: inline-block;
+                .calendar-image {
+                    width: 35px;
+                }
+            }
+            .page-title {
+                vertical-align: top;
+                display: inline-block;
+                padding: 2px 0 0 10px;
+                font-family: 'Titillium Web', sans-serif;
+                font-size: 24px;
+                font-weight: 300;
+                color: #FFFFFF;
+            
+            }
+        }
+        
+        .category-view {
+            // display: inline-block;
+            float: right;
+            margin: 25px 15px;
+            .category-view-image {
+                width: 60px;
+            }
+        }
+    }
+    .page-content {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        margin-top: -50px;
+        .content-scroll {
+            width: 100%;
+            overflow-x: scroll;
+            overflow-y: visible;
+        }
+    }
+}

@@ -3,11 +3,11 @@
     "category_id": "a",
     "description": "Create New designs in KAT for Boards, Cards, Details, Timelines and Graphs",
     "created_at": "10 JAN 2018 00:00:00",
-    "completed_at": "",
+    "completed_at": "11 JAN 2018 00:00:00",
     "complete": true,
     "estimate": "2h",
     "priority": 4,
-    "progress": 75,
+    "progress": 100,
     "team": {
         "id": 987,
         "name": "KickAssTeam"
@@ -15,7 +15,7 @@
     "assignee": {
         "id": 123,
         "name": "Sirajul Muneer C B",
-        "profile_pic": "https://pbs.twimg.com/profile_images/482422347157094400/YpdekjL8_400x400.jpeg"
+        "avatar": "https://pbs.twimg.com/profile_images/482422347157094400/YpdekjL8_400x400.jpeg"
     }
 }, {
     "id": "cc",
@@ -23,10 +23,10 @@
     "description": "Create New designs in KAT for Boards, Cards, Details, Timelines and Graphs",
     "created_at": "10 JAN 2018 00:00:00",
     "completed_at": "",
-    "complete": true,
+    "complete": false,
     "estimate": "2h",
     "priority": 8,
-    "progress": 0,
+    "progress": 55,
     "team": {
         "id": 987,
         "name": "My Team"
@@ -34,7 +34,7 @@
     "assignee": {
         "id": 123,
         "name": "Sirajul Muneer C B",
-        "profile_pic": "https://pbs.twimg.com/profile_images/482422347157094400/YpdekjL8_400x400.jpeg"
+        "avatar": "https://pbs.twimg.com/profile_images/482422347157094400/YpdekjL8_400x400.jpeg"
     }
 }, {
     "id": "bb",
@@ -45,7 +45,7 @@
     "complete": false,
     "estimate": "2h",
     "priority": 3,
-    "progress": 100,
+    "progress": 0,
     "team": {
         "id": 987,
         "name": "KickAssTeam"
@@ -53,6 +53,6 @@
     "assignee": {
         "id": 123,
         "name": "Sirajul Muneer C B",
-        "profile_pic": "https://pbs.twimg.com/profile_images/482422347157094400/YpdekjL8_400x400.jpeg"
+        "avatar": "https://pbs.twimg.com/profile_images/482422347157094400/YpdekjL8_400x400.jpeg"
     }
 }]

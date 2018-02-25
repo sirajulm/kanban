@@ -2,7 +2,7 @@ $color-category: #ebedf3;
 .category {
     display: inline-block;
     position: relative;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Titillium Web', sans-serif;
     font-weight: 400;
     width: 400px;
     background-color: $color-category;
@@ -10,15 +10,19 @@ $color-category: #ebedf3;
     border-radius: 5px;
     .category-header {
         border-bottom: 1px solid #B4BBC3;
-        padding: 15px;
+        padding: 12px 15px;
         .category-title {
             display: inline-block;
             font-weight: 700;
             font-size: 18px;
-            color: #787C82;
+            color: #9aa1a8;
             vertical-align: middle;
             height: 30px;
-            width: 300px;
+            width: 275px;
+            padding-right: 25px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
         }
         .more-button {
             display: inline-block;

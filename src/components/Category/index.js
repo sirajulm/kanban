@@ -22,7 +22,7 @@ class Category extends React.Component{
             "complete": false,
             "estimate": "2h",
             "priority": 3,
-            "progress": 100,
+            "progress": 0,
             "team": {
                 "id": 987,
                 "name": "KickAssTeam"
@@ -30,7 +30,7 @@ class Category extends React.Component{
             "assignee": {
                 "id": 123,
                 "name": "Sirajul Muneer C B",
-                "profile_pic": "https://pbs.twimg.com/profile_images/482422347157094400/YpdekjL8_400x400.jpeg"
+                "avatar": "https://pbs.twimg.com/profile_images/482422347157094400/YpdekjL8_400x400.jpeg"
             }
         }}));
     }
@@ -38,8 +38,30 @@ class Category extends React.Component{
     componentDidMount() {
         this.props.dispatch(getCards(this.props.id));
     }
-    render() {
+    render() {    
         const {id, title, cards} = this.props;
+
+        const cardGroups =[];
+        cards && cards[id] && cards[id].forEach(card => {
+            const key = card.completed_at || "incomplete";
+            let cardGroupIndex = cards[id].length;
+            let cardGroup = cardGroups.filter((cardGroup, index)=> {
+                if(cardGroup.date === key) {
+                    cardGroupIndex = index;
+                    return true;
+                }
+                return false;
+            });
+
+            cardGroup = (cardGroup.length) ? cardGroup[0] : {
+                date: key,
+                cards: []
+            };
+
+            cardGroup.cards.push(card);
+            cardGroups.splice(cardGroupIndex, 1, cardGroup);
+        });
+
         return (
             <div className="category">
                 <div className="category-header">
@@ -48,38 +70,28 @@ class Category extends React.Component{
                     <div className="more-button">
                         <img src="/src/public/img/more.png"/>
                     </div>
-                </div>            
+                </div>         
                 <div className="card-container">
-                <DateGroup date="10 JAN 2018">
-                    {
-                        cards && cards[id] && cards[id].filter((card, index) => {
-                            if(this.props.filter === 'SHOW_COMPLETED') {
-                                return card.complete;
-                            } else if(this.props.filter === 'SHOW_INCOMPLETE') {
-                                return !card.complete;
-                            } else {
-                                return true;
-                            }
-                        }).map((card, index) => {
-                            return (<Card key={index}
-                                team={card.team.name}
-                                progress={card.progress}
-                                isComplete={true}/>
-                            )
-                        })
-                    }
-                </DateGroup>
-                {/* <DateGroup date="10 JAN 2018">
-                    {
-                        cards && cards[id] && cards[id].map((card, index) => {
-                            return (<Card key={index}
-                                team={card.team.name}
-                                progress={card.progress}
-                                isComplete={true}/>
-                            )
-                        })
-                    }
-                </DateGroup> */}
+                {
+                    cardGroups && cardGroups.map((groupItem)=> {
+                        return <DateGroup key={groupItem.date} date={groupItem.date}>
+                        {
+                            groupItem.cards && groupItem.cards.filter((card, index) => {
+                                if(this.props.filter === 'SHOW_COMPLETED') {
+                                    return card.complete;
+                                } else if(this.props.filter === 'SHOW_INCOMPLETE') {
+                                    return !card.complete;
+                                } else {
+                                    return true;
+                                }
+                            }).map((card, index) => {
+                                return (<Card key={index} {...card}/>
+                                )
+                            })
+                        }
+                    </DateGroup>
+                    })
+                }
                 </div>
                 <AddButton onAction={this.onAddCard}/>
                 <FilterList>
