@@ -1,0 +1,36 @@
+.task-filter-handle {
+    display: none;
+    position: absolute;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    color: #929292;
+    top: 50%;
+    right: -64px;
+    transform: rotate(-90deg);
+    background: #ebedf3;
+    transform-origin: top;
+    padding: 5px 20px;
+    border-radius: 0 0 7px 7px;
+    text-transform: uppercase;
+    &::after {
+        position: absolute;
+        content: " ";
+        top: 0;
+        right: -23px;
+        height: 0;
+        border-right: 25px solid transparent;
+        border-left: 0px solid transparent;
+        border-top: 35px solid #ebedf3;
+    }
+    &::before {
+        position: absolute;
+        content: " ";
+        top: 0;
+        left: -23px;
+        height: 0;
+        border-right: 0px solid transparent;
+        border-left: 25px solid transparent;
+        border-top: 35px solid #ebedf3;
+    }
+}

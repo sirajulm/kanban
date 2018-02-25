@@ -7,6 +7,7 @@ import Card from '../../components/Card';
 import AddButton from '../AddButton';
 import DragHandle from '../DragHandle';
 import FilterList, {FilterItem} from '../Filter';
+import TaskFilter from '../TaskFilter';
 import { getCards, addCard } from '../../actions/cardActions';
 import { showCardModal } from '../../actions/modalActions';
 import { VISIBILITY_FILTERS } from '../../constants/actionTypes';
@@ -79,6 +80,10 @@ class Category extends React.Component{
                     })
                 }
                 </div>
+                {
+                    (cards && cards[id] && cards[id].length > 1) && 
+                    <TaskFilter/>
+                }
                 <AddButton onAction={this.onAddCard}/>
                 <FilterList>
                     <FilterItem category={this.props.id} dispatch={this.props.dispatch} filter={VISIBILITY_FILTERS.SHOW_INCOMPLETE} title="Incomplete" active={(VISIBILITY_FILTERS.SHOW_INCOMPLETE === this.props.filter)}/>

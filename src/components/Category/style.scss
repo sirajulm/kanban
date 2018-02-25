@@ -33,10 +33,14 @@ $color-category: #ebedf3;
                 height: 30px;
             }
         }
-    }
-    
+    }  
     .card-container {
         max-height: calc(100vh - 250px);
         overflow: scroll;
+    }
+    &:hover {
+        .task-filter-handle {
+            display: block;
+        }
     }
 }
