@@ -11,18 +11,25 @@ class AddCategoryForm extends React.Component {
         super(props);
         this.state = {
             show: this.props.open || false,
+            formInvalid: false,
             title:""
         }
     }
     componentWillReceiveProps(newProps) {
         if(this.props.open !== newProps.open) {
-            this.setState({show: newProps.open, title: ''});
+            this.setState({show: newProps.open, title: '', formInvalid: false});
         }
     }
     handleInput = (event)=> {
         this.setState({title: event.target.value});
     }
     handleSubmit = (event)=> {
+        if(this.state.title == "") {
+            event.preventDefault();
+            this.setState({formInvalid: true});
+            return;
+        }
+        this.setState({formInvalid: false});
         this.props.onAddCategory({category: {
             "id": hash(this.state.title),
             "title": this.state.title,
@@ -53,9 +60,12 @@ class AddCategoryForm extends React.Component {
                 <h2 className="category-form-title">Add Category</h2>
                 <form className="add-category-form" onSubmit={this.handleSubmit}>
                     <div className="form-row">
-                        <label>Category Name:</label>
+                        <label>*Category Name:</label>
                         <input ref={(element)=> {this.input = element}} type="text" value={this.state.title} placeholder="Provide category name..." onChange={this.handleInput}/>
                     </div>
+                    {this.state.formInvalid && <div className="form-row">
+                    <span className="warning">*Please fill the required fields</span>
+                </div>}
                     <div className="form-row submit">
                         <input type="submit" value="Add Category"/>
                     </div>

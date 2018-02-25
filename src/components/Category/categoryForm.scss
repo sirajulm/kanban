@@ -11,6 +11,9 @@
     .form-row {
         display: block;
         margin-bottom: 5px;
+        input {
+            outline: none;
+        }
         > label, > input {
             display: inline-block;
             vertical-align: middle;
@@ -34,6 +37,7 @@
             text-align: center;
             padding-top: 15px;
             input {
+                cursor: pointer;
                 border-radius: 10px;
                 font-family: 'Titillium Web', sans-serif;
                 font-size: 20px;
@@ -41,6 +45,11 @@
                 background: #5fb5ef;
                 border: none;
             }
+        }
+        .warning {
+            font-family: 'Titillium Web', sans-serif;
+            font-size: 14px;
+            color: red;
         }
     }
 }

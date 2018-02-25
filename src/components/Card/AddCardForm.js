@@ -16,11 +16,18 @@ class AddCardForm extends React.Component {
             complete: false,
             priority: 1,
             progress: 0,
+            formInvalid: false
         }
     }
     componentWillReceiveProps(newProps) {
         if(this.props.open !== newProps.open) {
-            this.setState({show: newProps.open, title: ''});
+            this.setState({
+                show: newProps.open, 
+                description: '', 
+                estimate: '', 
+                priority:1 ,
+                formInvalid: false
+            });
         }
     }
     handleInput = (event)=> {
@@ -29,6 +36,12 @@ class AddCardForm extends React.Component {
         this.setState({[field]: event.target.value});
     }
     handleSubmit = (event)=> {
+        if(this.state.description == "" || this.state.estimate == "") {
+            event.preventDefault();
+            this.setState({formInvalid: true});
+            return;
+        }
+        this.setState({formInvalid: false});
         this.props.onAddCard({id: this.props.categoryId, card: {
             "id": hash(this.state.description),
             "category_id": this.props.categoryId,
@@ -73,20 +86,23 @@ class AddCardForm extends React.Component {
                 open={this.state.show} 
                 onClose={this.onCloseModal} 
                 little>
-                <h2 className="card-form-title">Add Card</h2>
+                <h2 className="card-form-title">Add Card</h2>                
                 <form className="add-card-form" onSubmit={this.handleSubmit}>
                 <div className="form-row">
-                    <label>Card Description:</label>
+                    <label>*Card Description:</label>
                     <input ref={(element)=> {this.input = element}} type="text" name="description" value={this.state.description} placeholder="Provide category name" onChange={this.handleInput}/>
                 </div>
                 <div className="form-row">
-                    <label>Estimate:</label>
+                    <label>*Estimate:</label>
                     <input type="text" name="estimate" value={this.state.estimate} placeholder="Provide estimate" onChange={this.handleInput}/>
                 </div>
                 <div className="form-row">
                     <label>Priority:</label>
                     <input type="text" name="priority" value={this.state.priority} placeholder="Provide task priority" onChange={this.handleInput}/>
                 </div>
+                {this.state.formInvalid && <div className="form-row">
+                    <span className="warning">*Please fill the required fields</span>
+                </div>}
                 <div className="form-row submit">
                     <input type="submit" value="Add Card"/>
                 </div>

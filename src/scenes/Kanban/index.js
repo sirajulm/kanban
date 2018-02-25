@@ -6,7 +6,6 @@ import {showCategoryModal} from  '../../actions/modalActions';
 
 import Category, {AddCategoryForm} from '../../components/Category';
 import AddButton from '../../components/AddButton';
-import BackToTop from '../../components/BackToTop';
 import {AddCardForm} from '../../components/Card';
 
 import './style.scss';
@@ -46,10 +45,7 @@ class Kanban extends React.Component {
                     id={category.id} 
                     key={category.id} 
                     title={category.title}
-                    filter={category.filter}
-                    >
-                    <BackToTop/>
-                  </Category>);
+                    filter={category.filter}/>);
                 })
               }
               <AddButton style={{ top: 50, right: 20}} onAction={this.onAddCategory}/>

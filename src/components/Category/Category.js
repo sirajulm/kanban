@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import moment from 'moment';
@@ -8,19 +9,49 @@ import AddButton from '../AddButton';
 import DragHandle from '../DragHandle';
 import FilterList, {FilterItem} from '../Filter';
 import TaskFilter from '../TaskFilter';
+import BackToTop from '../BackToTop';
 import { getCards, addCard } from '../../actions/cardActions';
 import { showCardModal } from '../../actions/modalActions';
 import { VISIBILITY_FILTERS } from '../../constants/actionTypes';
 import './style.scss'
 
 class Category extends React.Component{
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            scrollTop: 0
+        }
+    }
     
     onAddCard = (event)=> {
         this.props.dispatch(showCardModal(this.props.id));
     }
 
+    onScrollTop = ()=> {
+        if(this.state.scrollTop) {
+            this.cardContainer.scrollTop = 0;
+        }
+    }
+    onScroll = (event)=> {
+        if(this.scrollTimer) {
+            clearTimeout(this.scrollTimer);
+        }
+        this.scrollTimer = setTimeout(()=> {
+            console.log("Helooo");
+            this.setState({scrollTop: this.cardContainer.scrollTop})
+        },200);
+    }
+
     componentDidMount() {
         this.props.dispatch(getCards(this.props.id));
+        this.cardContainer = ReactDOM.findDOMNode(this).querySelector('.card-container');
+        this.cardContainer.addEventListener('scroll', this.onScroll)
+    }
+    componentWillUnmount() {
+        clearTimeout(this.scrollTimer);
+        this.cardContainer.removeEventListener('scroll', this.onScroll);
+        this.cardContainer = null;
     }
     render() {    
         const {id, title, cards} = this.props;
@@ -78,7 +109,9 @@ class Category extends React.Component{
                         }
                     </DateGroup>
                     })
+                    
                 }
+                {cardGroups && cardGroups.length && (this.state.scrollTop > 100) && <BackToTop onAction={this.onScrollTop}/>}
                 </div>
                 {
                     (cards && cards[id] && cards[id].length > 1) && 
