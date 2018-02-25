@@ -29,6 +29,7 @@
             padding: 10px 8px 5px 8px;
             color: #a9aaad;
             border-bottom: 4px solid transparent;
+            height: 23px;
             &.active {
                 color: #FFFFFF;
                 font-weight: 600;
@@ -40,6 +41,7 @@
         float: right;
         background-color: #202531;
         padding: 0 30px 0 10px;
+        height: 40px;
         .nav-item {
             display: inline-block;
             font-family: 'Titillium Web', sans-serif;
