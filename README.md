@@ -8,6 +8,7 @@ For each category there is also an underlying filter that the user could use.
 ### Clone
 
 ```git clone https://github.com/sirajulm/kanban.git```
+
 ```cd kanban```
 
 ### Install dependencies
