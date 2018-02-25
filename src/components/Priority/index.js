@@ -4,14 +4,14 @@ import './style.scss';
 
 const Priority = (props) => {
     const colorMap=[
-        '#e64125', 
-        '#e8662b', 
-        '#899536', 
-        '#f4c844', 
-        '#d2fe59', 
+        '#458ef7',
+        '#62c3fa',
         '#8cfc4d', 
-        '#62c3fa', 
-        '#458ef7'
+        '#d2fe59', 
+        '#f4c844', 
+        '#899536', 
+        '#e8662b', 
+        '#e64125'
     ];
     return (
         <div className="priority" style={{backgroundColor: colorMap[props.priority - 1]}}>
