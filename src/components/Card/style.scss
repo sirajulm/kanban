@@ -11,19 +11,34 @@ $color-background: #F0F8FA;
         top: 0;
         bottom: 0;
         height: 100%;
-        // background: $color-background;
+        border-radius: 5px;
         z-index: 0;
     }
     .card-content {
         position: relative;
         .card-title {
-            padding: 15px;
+            padding: 15px 30px 15px 15px;
         }
         .estimate {
-            // border: 1px solid red;
+            max-width: 30px;
+            position: absolute;
+            top: 5px;
+            right: 7px;
+            color: #929292;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .complete-checkbox {
+            display: none;
+            position: absolute;
+            right: 5px;
+            bottom: 50px;
+            // input[type="checkbox"] {
+            // }
         }
         .details {
-            padding: 5px;
+            padding: 5px 5px 5px 15px;
             .team-name {
                 display: inline-block;
                 font-weight: 700;
@@ -36,7 +51,15 @@ $color-background: #F0F8FA;
                     margin: 0 5px;
                     vertical-align: middle;
                     font-size: 14px;
+                    color: #929292;
                 }
+            }
+        }
+    }
+    &:hover {
+        .card-content {
+            .complete-checkbox {
+                display: block;
             }
         }
     }

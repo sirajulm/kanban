@@ -13,7 +13,19 @@ export default function (state = initialState.cards, action) {
           };
             return newState;
         }
-
+      
+      case types.MARK_COMPETE_CARD:
+        {
+          const categoryCards = [...state[action.categoryId]].map((card)=> {
+            if(card.id === action.id) {
+              card.complete = action.isComplete
+              card.completed_at = action.completedAt
+              card.progress= 100;
+            }
+            return card;
+          });
+          return {...state, ...{[action.categoryId]: categoryCards}}
+        }
       case types.DELETE_CARD:
         const newState = state.filter((item) => {
             return (item.id !== action.id)

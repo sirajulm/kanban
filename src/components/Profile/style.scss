@@ -2,10 +2,11 @@
     display: inline-block;
     vertical-align: middle;
     margin: 5px;
-    border-radius: 50%; 
+    border-radius: 50%;
     img.profile-avatar {
         width: 24px;
         height: 24px;
+        border: 1px solid #000;
         border-radius: 50%;
     }
     span.profile-name {

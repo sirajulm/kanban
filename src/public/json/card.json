@@ -1,6 +1,6 @@
 [{
     "id": "aa",
-    "category_id": "a",
+    "category_id": 3214454216,
     "description": "Create New designs in KAT for Boards, Cards, Details, Timelines and Graphs",
     "created_at": "10 JAN 2018 00:00:00",
     "completed_at": "11 JAN 2018 00:00:00",
@@ -19,14 +19,14 @@
     }
 }, {
     "id": "cc",
-    "category_id": "a",
+    "category_id": 3214454216,
     "description": "Create New designs in KAT for Boards, Cards, Details, Timelines and Graphs",
     "created_at": "10 JAN 2018 00:00:00",
-    "completed_at": "",
-    "complete": false,
+    "completed_at": "12 JAN 2018 00:00:00",
+    "complete": true,
     "estimate": "2h",
     "priority": 8,
-    "progress": 55,
+    "progress": 100,
     "team": {
         "id": 987,
         "name": "My Team"
@@ -38,7 +38,7 @@
     }
 }, {
     "id": "bb",
-    "category_id": "a",
+    "category_id": 3214454216,
     "description": "Create New designs in KAT for Boards, Cards, Details, Timelines and Graphs",
     "created_at": "10 JAN 2018 00:00:00",
     "completed_at": "",

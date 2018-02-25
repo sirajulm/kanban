@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getCategories, addCategory } from '../../actions/categoryActions';
+import {showCategoryModal} from  '../../actions/modalActions';
 
 import Category, {AddCategoryForm} from '../../components/Category';
 import AddButton from '../../components/AddButton';
 import BackToTop from '../../components/BackToTop';
+import {AddCardForm} from '../../components/Card';
 
 import './style.scss';
 
@@ -14,14 +16,15 @@ class Kanban extends React.Component {
     super(props);
   }
   onAddCategory = (event)=> {
-    
+    this.props.dispatch(showCategoryModal());
   }
 
   componentDidMount() {
     this.props.dispatch(getCategories());
   }
-  render() {  
+  render() { 
     const boardWidth = ((450 * this.props.categories.length) + 100);
+    const {showCategoryModal, showCardModal, categoryId} = this.props.modals;
     return (<section className="kanban-board">
         <header className="page-header">
           <span className="page-header-block">
@@ -53,7 +56,8 @@ class Kanban extends React.Component {
             </div>
           </div>
         </div>
-        <AddCategoryForm open={true}/>
+        <AddCategoryForm open={showCategoryModal}/>
+        <AddCardForm open={showCardModal} categoryId={categoryId}/>
     </section>);
   }
 }
@@ -62,8 +66,9 @@ Kanban.propTypes = {
 
 }
 
-const mapStateToProps = ({ categories }) => ({
-  categories
+const mapStateToProps = ({ categories, modals }) => ({
+  categories,
+  modals
 });
 
 export default connect(

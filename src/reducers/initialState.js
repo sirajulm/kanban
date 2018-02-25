@@ -1,4 +1,5 @@
 export default {
     categories: [],
-    cards: {}
+    cards: {},
+    modals: {}
 }

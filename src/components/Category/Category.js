@@ -1,38 +1,21 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import moment from 'moment';
 import DateGroup from '../DateGroup';
 import Card from '../../components/Card';
 import AddButton from '../AddButton';
 import DragHandle from '../DragHandle';
 import FilterList, {FilterItem} from '../Filter';
 import { getCards, addCard } from '../../actions/cardActions';
+import { showCardModal } from '../../actions/modalActions';
 import { VISIBILITY_FILTERS } from '../../constants/actionTypes';
 import './style.scss'
 
 class Category extends React.Component{
     
     onAddCard = (event)=> {
-        this.props.dispatch(addCard({id: this.props.id, card: {
-            "id": "fff",
-            "category_id": this.props.id,
-            "description": "Create New designs in KAT for Boards, Cards, Details, Timelines and Graphs",
-            "created_at": "10 JAN 2018 00:00:00",
-            "completed_at": "",
-            "complete": false,
-            "estimate": "2h",
-            "priority": 3,
-            "progress": 0,
-            "team": {
-                "id": 987,
-                "name": "KickAssTeam"
-            },
-            "assignee": {
-                "id": 123,
-                "name": "Sirajul Muneer C B",
-                "avatar": "https://pbs.twimg.com/profile_images/482422347157094400/YpdekjL8_400x400.jpeg"
-            }
-        }}));
+        this.props.dispatch(showCardModal(this.props.id));
     }
 
     componentDidMount() {
@@ -43,10 +26,10 @@ class Category extends React.Component{
 
         const cardGroups =[];
         cards && cards[id] && cards[id].forEach(card => {
-            const key = card.completed_at || "incomplete";
+            const key = moment(card.completed_at).isValid() ? moment(card.completed_at).format('DD MMM YYYY') : moment().format('DD MMM YYYY');
             let cardGroupIndex = cards[id].length;
             let cardGroup = cardGroups.filter((cardGroup, index)=> {
-                if(cardGroup.date === key) {
+                if(moment(cardGroup.date).format('DD MMM YYYY') === key) {
                     cardGroupIndex = index;
                     return true;
                 }
@@ -60,6 +43,9 @@ class Category extends React.Component{
 
             cardGroup.cards.push(card);
             cardGroups.splice(cardGroupIndex, 1, cardGroup);
+            cardGroups.sort((a, b) => {
+                return  moment(b.date) - moment(a.date);
+            })
         });
 
         return (

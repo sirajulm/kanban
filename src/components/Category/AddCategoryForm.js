@@ -3,14 +3,20 @@ import { connect } from 'react-redux';
 import Modal from 'react-responsive-modal';
 import hash from 'string-hash';
 import { addCategory } from '../../actions/categoryActions';
+import {hideCategoryModal} from '../../actions/modalActions';
 
-window.hash = hash;
+import './categoryForm.scss';
 class AddCategoryForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            show: this.props.open,
+            show: this.props.open || false,
             title:""
+        }
+    }
+    componentWillReceiveProps(newProps) {
+        if(this.props.open !== newProps.open) {
+            this.setState({show: newProps.open, title: ''});
         }
     }
     handleInput = (event)=> {
@@ -21,19 +27,39 @@ class AddCategoryForm extends React.Component {
             "id": hash(this.state.title),
             "title": this.state.title,
             "filter": "SHOW_ALL"
-          }})
+        }});
+        this.onCloseModal();
         event.preventDefault();
     }
     onCloseModal = ()=> {
-        this.setState({show: false});
+        this.props.onCloseModal();
+    }
+    componentDidMount() {
+        this.input && this.input.focus();
+    }
+    componentDidUpdate() {
+        this.input && this.input.focus();
     }
     render() {
         return (
-            <Modal open={this.state.show} onClose={this.onCloseModal} little>
-              <form onSubmit={this.handleSubmit}>
-                  <label>Category Name:</label>
-                  <input type="text" value={this.state.title} placeholder="Provide category name..." onChange={this.handleInput}/>
-              </form>
+            <Modal 
+            styles={{
+                modal: {
+                    backgroundColor: '#B4BBC3',
+                    borderRadius: 5
+                }
+            }} 
+            open={this.state.show} onClose={this.onCloseModal} little>
+                <h2 className="category-form-title">Add Category</h2>
+                <form className="add-category-form" onSubmit={this.handleSubmit}>
+                    <div className="form-row">
+                        <label>Category Name:</label>
+                        <input ref={(element)=> {this.input = element}} type="text" value={this.state.title} placeholder="Provide category name..." onChange={this.handleInput}/>
+                    </div>
+                    <div className="form-row submit">
+                        <input type="submit" value="Add Category"/>
+                    </div>
+                </form>
             </Modal>
     
         )
@@ -43,7 +69,8 @@ class AddCategoryForm extends React.Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-      onAddCategory: (category) => dispatch(addCategory(category))
+      onAddCategory: (category) => dispatch(addCategory(category)),
+      onCloseModal: ()=> dispatch(hideCategoryModal())
     };
   };
   
