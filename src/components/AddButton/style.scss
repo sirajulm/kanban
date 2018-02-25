@@ -1,3 +1,18 @@
 .add-button {
-    // display: none;
+    display: inline-block;
+    position: absolute;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    background: #9aa1a8;
+    border-radius: 50%;
+    text-align: center;
+    margin-top: -20px;
+    cursor: pointer;
+    .icon {
+        font-family: 'Titillium Web', sans-serif;
+        font-size: 24px;
+        font-weight: 400;
+        color: #FFF;
+    }
 }

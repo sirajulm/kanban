@@ -40,7 +40,7 @@ class Kanban extends React.Component {
         </header>
         <div className="page-content">
           <div className="content-scroll">
-            <div style={{width: boardWidth}}>
+            <div className="category-list" style={{width: boardWidth}}>
               {
                 this.props.categories.map((category)=> {
                   return (<Category 
@@ -53,7 +53,7 @@ class Kanban extends React.Component {
                   </Category>);
                 })
               }
-              <AddButton onAction={this.onAddCategory}/>
+              <AddButton style={{ top: 50, right: -50}} onAction={this.onAddCategory}/>
             </div>
           </div>
         </div>

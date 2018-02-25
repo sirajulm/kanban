@@ -8,6 +8,7 @@ $color-category: #ebedf3;
     background-color: $color-category;
     margin-left: 50px;
     border-radius: 5px;
+    vertical-align: top;
     .category-header {
         border-bottom: 1px solid #B4BBC3;
         padding: 12px 15px;
@@ -35,7 +36,7 @@ $color-category: #ebedf3;
     }
     
     .card-container {
-        height: 400px;
+        max-height: calc(100vh - 250px);
         overflow: scroll;
     }
 }
