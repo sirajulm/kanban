@@ -20,19 +20,19 @@ export default function (state = initialState.categories, action) {
           const newState = state.filter((item) => {
             return (item.id !== action.id)
           })
-          return [...newState];
+          return newState;
       }
 
       case types.GET_CATEGORIES:
-        return [...state];
+        return state;
 
       case types.GET_CATEGORIES_SUCCESS:
-        return [...state, ...action.categories];
+        return [...action.categories];
 
       case types.GET_CATEGORIES_ERROR:
-        return [...state];
+        return state;
 
       default:
-        return [...state];
+        return state;
     }
   }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getCategories, addCategory } from '../../actions/categoryActions';
 
-import Category from '../../components/Category';
+import Category, {AddCategoryForm} from '../../components/Category';
 import AddButton from '../../components/AddButton';
 import BackToTop from '../../components/BackToTop';
 
@@ -14,18 +14,14 @@ class Kanban extends React.Component {
     super(props);
   }
   onAddCategory = (event)=> {
-    this.props.dispatch(addCategory({category: {
-      "id": "d",
-      "title": "New Category",
-      "filter": "SHOW_ALL"
-    }}));
+    
   }
 
   componentDidMount() {
     this.props.dispatch(getCategories());
   }
   render() {  
-    const boardWidth = ((450 * this.props.categories.length) + 50);
+    const boardWidth = ((450 * this.props.categories.length) + 100);
     return (<section className="kanban-board">
         <header className="page-header">
           <span className="page-header-block">
@@ -53,10 +49,11 @@ class Kanban extends React.Component {
                   </Category>);
                 })
               }
-              <AddButton style={{ top: 50, right: -50}} onAction={this.onAddCategory}/>
+              <AddButton style={{ top: 50, right: 20}} onAction={this.onAddCategory}/>
             </div>
           </div>
         </div>
+        <AddCategoryForm open={true}/>
     </section>);
   }
 }
