@@ -9,7 +9,7 @@ export default function (state = initialState.cards, action) {
         {
           const newState = {
             ...state, 
-            ...{[action.payload.id]: [...state[action.payload.id], action.payload.card]}
+            ...{[action.payload.id]: [...state[action.payload.id] || [], action.payload.card]}
           };
             return newState;
         }
