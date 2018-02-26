@@ -17,8 +17,9 @@ const DateGroup = ({date, children}) => {
         }
     }
     const formattedDate = formatDate(date);
+    const style = formattedDate === null ? {minHeight: 350} : {};
     return (
-        <div>
+        <div style={style}>
             {
                 (children.length > 0) && formattedDate &&   <div className="date">
                     <svg height="18px" width="350px" viewBox="0 0 350 18">

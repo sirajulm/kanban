@@ -28,7 +28,7 @@ const Card = (props) => {
         <div className="card">
             <div className="background" style={backgroundStyle}></div>
             <div className="card-content">
-                <Beacon/>
+                {props.alert && <Beacon /> }
                 <div className="card-row">
                     <div className="card-title" title={props.description} style={textStyle}>
                         {props.description}
