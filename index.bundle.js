@@ -47793,7 +47793,7 @@ exports['default'] = function () {
 
     case types.ADD_CARD:
       {
-        var _newState = _extends({}, state, _defineProperty({}, action.payload.id, [].concat(_toConsumableArray(state[action.payload.id]), [action.payload.card])));
+        var _newState = _extends({}, state, _defineProperty({}, action.payload.id, [].concat(_toConsumableArray(state[action.payload.id] || []), [action.payload.card])));
         return _newState;
       }
 
@@ -48084,7 +48084,7 @@ var _axios2 = _interopRequireDefault(_axios);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var CATEGORY_API = window.location.protocol + '//' + window.location.host + '/public/json/category.json';
+var CATEGORY_API = window.location.protocol + '//' + window.location.host + '../public/json/category.json';
 
 var getCategory = function getCategory(categoryId) {
     return _axios2['default'].get(CATEGORY_API);
@@ -49006,14 +49006,14 @@ var _axios2 = _interopRequireDefault(_axios);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var CARD_API = window.location.protocol + '//' + window.location.host + '/public/json/card.json';
+var CARD_API = window.location.protocol + '//' + window.location.host + '../public/json/card.';
 
 var getCard = function getCard(cardId) {
     return _axios2['default'].get(CARD_API);
 };
 
 var getCards = function getCards(categoryId) {
-    return _axios2['default'].get(CARD_API);
+    return _axios2['default'].get('' + CARD_API + categoryId + '.json');
 };
 
 exports.getCard = getCard;
@@ -49171,7 +49171,7 @@ var Header = function Header(props) {
                 _react2['default'].createElement(
                     'span',
                     null,
-                    _react2['default'].createElement('img', { src: '/public/img/search.png' })
+                    _react2['default'].createElement('img', { src: '../public/img/search.png' })
                 )
             ),
             _react2['default'].createElement(
@@ -49180,7 +49180,7 @@ var Header = function Header(props) {
                 _react2['default'].createElement(
                     'span',
                     null,
-                    _react2['default'].createElement('img', { src: '/public/img/notification.png' })
+                    _react2['default'].createElement('img', { src: '../public/img/notification.png' })
                 )
             ),
             _react2['default'].createElement(
@@ -49189,7 +49189,7 @@ var Header = function Header(props) {
                 _react2['default'].createElement(
                     'span',
                     null,
-                    _react2['default'].createElement('img', { src: '/public/img/video.png' })
+                    _react2['default'].createElement('img', { src: '../public/img/video.png' })
                 )
             ),
             _react2['default'].createElement(
@@ -49815,7 +49815,7 @@ var WorkHour = function WorkHour(props) {
         _react2['default'].createElement(
             'span',
             { className: 'work-hour-gauge' },
-            _react2['default'].createElement('img', { className: 'gauge-image', src: '/public/img/gauge.png' })
+            _react2['default'].createElement('img', { className: 'gauge-image', src: '../public/img/gauge.png' })
         ),
         _react2['default'].createElement(
             'span',
@@ -49952,7 +49952,7 @@ exports = module.exports = __webpack_require__(14)(false);
 
 
 // module
-exports.push([module.i, ".header {\n  height: 42px;\n  background-color: #202531; }\n  .header a {\n    text-decoration: none; }\n    .header a:visited, .header a:focus, .header a:active {\n      color: #a9aaad; }\n  .header .header-logo {\n    float: left;\n    font-family: 'Titillium Web', sans-serif;\n    font-weight: 600;\n    font-size: 20px;\n    color: #a9aaad;\n    padding: 5px 55px 4px 15px; }\n  .header .navbar-primary {\n    float: left;\n    background-color: #202531; }\n    .header .navbar-primary .nav-item {\n      float: left;\n      font-family: 'Titillium Web', sans-serif;\n      font-weight: 300;\n      font-size: 14px;\n      vertical-align: top;\n      padding: 10px 8px 5px 8px;\n      color: #a9aaad;\n      border-bottom: 4px solid transparent; }\n      .header .navbar-primary .nav-item.active {\n        color: #FFFFFF;\n        font-weight: 600;\n        border-bottom: 4px solid #5fb5ef; }\n  .header .navbar-secondary {\n    float: right;\n    background-color: #202531;\n    padding: 0 30px 0 10px; }\n    .header .navbar-secondary .nav-item {\n      display: inline-block;\n      font-family: 'Titillium Web', sans-serif;\n      font-weight: 300;\n      font-size: 14px;\n      vertical-align: top;\n      padding: 10px 8px 5px 8px;\n      color: #a9aaad;\n      border-bottom: 4px solid transparent; }\n      .header .navbar-secondary .nav-item.active {\n        color: #FFFFFF;\n        font-weight: 600;\n        border-bottom: 4px solid #5fb5ef; }\n      .header .navbar-secondary .nav-item.avatar {\n        border: none;\n        padding: 0; }\n      .header .navbar-secondary .nav-item.search, .header .navbar-secondary .nav-item.notification, .header .navbar-secondary .nav-item.video {\n        margin-right: 10px; }\n      .header .navbar-secondary .nav-item.search {\n        padding-bottom: 4px; }\n        .header .navbar-secondary .nav-item.search img {\n          width: 15px; }\n      .header .navbar-secondary .nav-item.notification {\n        padding-bottom: 2px; }\n        .header .navbar-secondary .nav-item.notification img {\n          width: 20px; }\n      .header .navbar-secondary .nav-item.video {\n        padding-bottom: 3px; }\n        .header .navbar-secondary .nav-item.video img {\n          width: 30px; }\n", ""]);
+exports.push([module.i, ".header {\n  height: 42px;\n  background-color: #202531; }\n  .header a {\n    text-decoration: none; }\n    .header a:visited, .header a:focus, .header a:active {\n      color: #a9aaad; }\n  .header .header-logo {\n    float: left;\n    font-family: 'Titillium Web', sans-serif;\n    font-weight: 600;\n    font-size: 20px;\n    color: #a9aaad;\n    padding: 5px 55px 4px 15px; }\n  .header .navbar-primary {\n    float: left;\n    background-color: #202531; }\n    .header .navbar-primary .nav-item {\n      float: left;\n      font-family: 'Titillium Web', sans-serif;\n      font-weight: 300;\n      font-size: 14px;\n      vertical-align: top;\n      padding: 10px 8px 5px 8px;\n      color: #a9aaad;\n      border-bottom: 4px solid transparent;\n      height: 23px; }\n      .header .navbar-primary .nav-item.active {\n        color: #FFFFFF;\n        font-weight: 600;\n        border-bottom: 4px solid #5fb5ef; }\n  .header .navbar-secondary {\n    float: right;\n    background-color: #202531;\n    padding: 0 30px 0 10px;\n    height: 40px; }\n    .header .navbar-secondary .nav-item {\n      display: inline-block;\n      font-family: 'Titillium Web', sans-serif;\n      font-weight: 300;\n      font-size: 14px;\n      vertical-align: top;\n      padding: 10px 8px 5px 8px;\n      color: #a9aaad;\n      border-bottom: 4px solid transparent; }\n      .header .navbar-secondary .nav-item.active {\n        color: #FFFFFF;\n        font-weight: 600;\n        border-bottom: 4px solid #5fb5ef; }\n      .header .navbar-secondary .nav-item.avatar {\n        border: none;\n        padding: 0; }\n      .header .navbar-secondary .nav-item.search, .header .navbar-secondary .nav-item.notification, .header .navbar-secondary .nav-item.video {\n        margin-right: 10px; }\n      .header .navbar-secondary .nav-item.search {\n        padding-bottom: 4px; }\n        .header .navbar-secondary .nav-item.search img {\n          width: 15px; }\n      .header .navbar-secondary .nav-item.notification {\n        padding-bottom: 2px; }\n        .header .navbar-secondary .nav-item.notification img {\n          width: 20px; }\n      .header .navbar-secondary .nav-item.video {\n        padding-bottom: 3px; }\n        .header .navbar-secondary .nav-item.video img {\n          width: 30px; }\n", ""]);
 
 // exports
 
@@ -50175,7 +50175,7 @@ var Kanban = function (_React$Component) {
             _react2['default'].createElement(
               'span',
               { className: 'calendar' },
-              _react2['default'].createElement('img', { className: 'calendar-image', src: '/public/img/calendar.png' })
+              _react2['default'].createElement('img', { className: 'calendar-image', src: '../public/img/calendar.png' })
             ),
             _react2['default'].createElement(
               'span',
@@ -50186,7 +50186,7 @@ var Kanban = function (_React$Component) {
           _react2['default'].createElement(
             'span',
             { className: 'category-view' },
-            _react2['default'].createElement('img', { className: 'category-view-image', src: '/public/img/category-view.png' })
+            _react2['default'].createElement('img', { className: 'category-view-image', src: '../public/img/category-view.png' })
           )
         ),
         _react2['default'].createElement(
@@ -50433,7 +50433,7 @@ var Category = function (_React$Component) {
                     _react2['default'].createElement(
                         'div',
                         { className: 'more-button' },
-                        _react2['default'].createElement('img', { src: '/public/img/more.png' })
+                        _react2['default'].createElement('img', { src: '../public/img/more.png' })
                     )
                 ),
                 _react2['default'].createElement(
@@ -50534,9 +50534,10 @@ var DateGroup = function DateGroup(_ref) {
         }
     };
     var formattedDate = formatDate(date);
+    var style = formattedDate === null ? { minHeight: 350 } : {};
     return _react2['default'].createElement(
         'div',
-        null,
+        { style: style },
         children.length > 0 && formattedDate && _react2['default'].createElement(
             'div',
             { className: 'date' },
@@ -50692,7 +50693,7 @@ var Card = function Card(props) {
         _react2['default'].createElement(
             'div',
             { className: 'card-content' },
-            _react2['default'].createElement(_Beacon2['default'], null),
+            props.alert && _react2['default'].createElement(_Beacon2['default'], null),
             _react2['default'].createElement(
                 'div',
                 { className: 'card-row' },
@@ -57860,7 +57861,7 @@ var DragHandle = function DragHandle(props) {
     return _react2['default'].createElement(
         'div',
         { className: 'drag-handle' },
-        _react2['default'].createElement('img', { src: '/public/img/drag.png' })
+        _react2['default'].createElement('img', { src: '../public/img/drag.png' })
     );
 };
 
@@ -58734,7 +58735,7 @@ exports = module.exports = __webpack_require__(14)(false);
 
 
 // module
-exports.push([module.i, "html {\n  height: 100%; }\n  html body {\n    margin: 0;\n    padding: 0; }\n    html body main.app {\n      background-image: url(\"/public/img/bg.jpg\");\n      background-size: cover;\n      width: 100vw;\n      height: 100vh; }\n      html body main.app div.container {\n        width: 100%;\n        overflow: hidden; }\n", ""]);
+exports.push([module.i, "html {\n  height: 100%; }\n  html body {\n    margin: 0;\n    padding: 0; }\n    html body main.app {\n      background-image: url(\"../public/img/bg.jpg\");\n      background-size: cover;\n      width: 100vw;\n      height: 100vh; }\n      html body main.app div.container {\n        width: 100%;\n        overflow: hidden; }\n", ""]);
 
 // exports
 
