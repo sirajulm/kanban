@@ -48084,7 +48084,7 @@ var _axios2 = _interopRequireDefault(_axios);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var CATEGORY_API = window.location.protocol + '//' + window.location.host + '/../public/json/category.json';
+var CATEGORY_API = window.location.protocol + '//' + window.location.host + '/kanban/public/json/category.json';
 
 var getCategory = function getCategory(categoryId) {
     return _axios2['default'].get(CATEGORY_API);
@@ -49006,7 +49006,7 @@ var _axios2 = _interopRequireDefault(_axios);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var CARD_API = window.location.protocol + '//' + window.location.host + '/../public/json/card.';
+var CARD_API = window.location.protocol + '//' + window.location.host + '/kanban/public/json/card.';
 
 var getCard = function getCard(cardId) {
     return _axios2['default'].get(CARD_API);
@@ -49171,7 +49171,7 @@ var Header = function Header(props) {
                 _react2['default'].createElement(
                     'span',
                     null,
-                    _react2['default'].createElement('img', { src: '/../public/img/search.png' })
+                    _react2['default'].createElement('img', { src: '/kanban/public/img/search.png' })
                 )
             ),
             _react2['default'].createElement(
@@ -49180,7 +49180,7 @@ var Header = function Header(props) {
                 _react2['default'].createElement(
                     'span',
                     null,
-                    _react2['default'].createElement('img', { src: '/../public/img/notification.png' })
+                    _react2['default'].createElement('img', { src: '/kanban/public/img/notification.png' })
                 )
             ),
             _react2['default'].createElement(
@@ -49189,7 +49189,7 @@ var Header = function Header(props) {
                 _react2['default'].createElement(
                     'span',
                     null,
-                    _react2['default'].createElement('img', { src: '/../public/img/video.png' })
+                    _react2['default'].createElement('img', { src: '/kanban/public/img/video.png' })
                 )
             ),
             _react2['default'].createElement(
@@ -49815,7 +49815,7 @@ var WorkHour = function WorkHour(props) {
         _react2['default'].createElement(
             'span',
             { className: 'work-hour-gauge' },
-            _react2['default'].createElement('img', { className: 'gauge-image', src: '/../public/img/gauge.png' })
+            _react2['default'].createElement('img', { className: 'gauge-image', src: '/kanban/public/img/gauge.png' })
         ),
         _react2['default'].createElement(
             'span',
@@ -50175,7 +50175,7 @@ var Kanban = function (_React$Component) {
             _react2['default'].createElement(
               'span',
               { className: 'calendar' },
-              _react2['default'].createElement('img', { className: 'calendar-image', src: '/../public/img/calendar.png' })
+              _react2['default'].createElement('img', { className: 'calendar-image', src: '/kanban/public/img/calendar.png' })
             ),
             _react2['default'].createElement(
               'span',
@@ -50186,7 +50186,7 @@ var Kanban = function (_React$Component) {
           _react2['default'].createElement(
             'span',
             { className: 'category-view' },
-            _react2['default'].createElement('img', { className: 'category-view-image', src: '/../public/img/category-view.png' })
+            _react2['default'].createElement('img', { className: 'category-view-image', src: '/kanban/public/img/category-view.png' })
           )
         ),
         _react2['default'].createElement(
@@ -50433,7 +50433,7 @@ var Category = function (_React$Component) {
                     _react2['default'].createElement(
                         'div',
                         { className: 'more-button' },
-                        _react2['default'].createElement('img', { src: '/../public/img/more.png' })
+                        _react2['default'].createElement('img', { src: '/kanban/public/img/more.png' })
                     )
                 ),
                 _react2['default'].createElement(
@@ -57861,7 +57861,7 @@ var DragHandle = function DragHandle(props) {
     return _react2['default'].createElement(
         'div',
         { className: 'drag-handle' },
-        _react2['default'].createElement('img', { src: '/../public/img/drag.png' })
+        _react2['default'].createElement('img', { src: '/kanban/public/img/drag.png' })
     );
 };
 
@@ -58735,7 +58735,7 @@ exports = module.exports = __webpack_require__(14)(false);
 
 
 // module
-exports.push([module.i, "html {\n  height: 100%; }\n  html body {\n    margin: 0;\n    padding: 0; }\n    html body main.app {\n      background-image: url(\"/../public/img/bg.jpg\");\n      background-size: cover;\n      width: 100vw;\n      height: 100vh; }\n      html body main.app div.container {\n        width: 100%;\n        overflow: hidden; }\n", ""]);
+exports.push([module.i, "html {\n  height: 100%; }\n  html body {\n    margin: 0;\n    padding: 0; }\n    html body main.app {\n      background-image: url(\"/kanban/public/img/bg.jpg\");\n      background-size: cover;\n      width: 100vw;\n      height: 100vh; }\n      html body main.app div.container {\n        width: 100%;\n        overflow: hidden; }\n", ""]);
 
 // exports
 
