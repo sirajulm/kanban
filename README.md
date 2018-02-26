@@ -3,10 +3,6 @@
 This is a sampleapp build using React, Redux, Redux Saga. The App have an initially loaded categories and Task cards for each categories. The user have the provision to add new categories or cards.
 For each category there is also an underlying filter that the user could use.
 
-## Demo
-[https://sirajulm.github.io/kanban](https://sirajulm.github.io/kanban)
-
-
 ## Build & Run
 
 ### Clone
